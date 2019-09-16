@@ -4,10 +4,10 @@ const inputHeight = document.getElementById('inputHeight');
 const inputWidth = document.getElementById('inputWidth');
 const colorPicker = document.getElementById('colorPicker');
 const pixelCanvas = document.getElementById('pixelCanvas');
-const cell = document.getElementsByClassName('cells');
+
 
 // Initialize Input variables;
-let color = 'black';
+let color = "black";
 let height = 1;
 let width = 1;
 
@@ -27,13 +27,16 @@ sizePicker.addEventListener('submit', function (event) {
 
 function makeGrid() {
     for (let h = 1; h <= height; h++) {
-        let tr = document.createElement('tr');
+        const tr = document.createElement('tr');
         pixelCanvas.appendChild(tr);
         for (let w = 1; w <= width; w++) {
-            let td = document.createElement('td');
+            const td = document.createElement('td');
             tr.appendChild(td);
+            td.addEventListener('click', function setColor() {
+                this.style.backgroundColor = color;              
+            });
         }
-    }
+    }  
 }
 
 function clearGrid() {
@@ -41,10 +44,8 @@ function clearGrid() {
         pixelCanvas.removeChild(pixelCanvas.firstChild);
     }
 }
-// Add color to cell
 
-// cell.addEventListener('click', function addColor(event) {
-//     console.log(event.target);
-// });
+
+
 
 
