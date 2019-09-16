@@ -5,7 +5,6 @@ const inputWidth = document.getElementById('inputWidth');
 const colorPicker = document.getElementById('colorPicker');
 const pixelCanvas = document.getElementById('pixelCanvas');
 
-
 // Initialize Input variables;
 let color = "black";
 let height = 1;
@@ -25,6 +24,7 @@ sizePicker.addEventListener('submit', function (event) {
     makeGrid();
 });
 
+// Show the drawing grid on the page;
 function makeGrid() {
     for (let h = 1; h <= height; h++) {
         const tr = document.createElement('tr');
@@ -39,13 +39,9 @@ function makeGrid() {
     }  
 }
 
+// Clear the previous grid 
 function clearGrid() {
     while (pixelCanvas.firstChild) {
         pixelCanvas.removeChild(pixelCanvas.firstChild);
     }
 }
-
-
-
-
-
